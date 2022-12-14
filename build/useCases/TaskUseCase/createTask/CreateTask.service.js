@@ -20,7 +20,7 @@ class CreateTaskService {
     }
     create(infoTask, folderId, userId) {
         return __awaiter(this, void 0, void 0, function* () {
-            const folder = yield this.repoFolder.findAll();
+            const folder = yield this.repoFolder.findAll(userId);
             const hasPermission = folder.find((folder) => folder.id === folderId);
             if (!hasPermission)
                 throw new customError_1.default("non-existent folder", 400);

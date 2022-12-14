@@ -8,10 +8,12 @@ const express_1 = __importDefault(require("express"));
 require("express-async-errors");
 const routes_1 = __importDefault(require("./routes"));
 const errorMiddleware_1 = __importDefault(require("./middleware/errorMiddleware"));
+const cors = require('cors');
 class App {
     constructor() {
         this.router = routes_1.default;
         this.app = (0, express_1.default)();
+        this.app.use(cors());
         this.app.use(express_1.default.json());
         this.app.get('/', (req, res) => res.json({ ok: true }));
         this.router(this.app);

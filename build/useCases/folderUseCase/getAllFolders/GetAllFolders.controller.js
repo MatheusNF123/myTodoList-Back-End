@@ -12,8 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class GetllAllFoldersController {
     constructor(serviceFindAllFolders) {
         this.serviceFindAllFolders = serviceFindAllFolders;
-        this.findAll = (_req, res) => __awaiter(this, void 0, void 0, function* () {
-            const folders = yield this.serviceFindAllFolders.findAll();
+        this.findAll = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.user;
+            const folders = yield this.serviceFindAllFolders.findAll(id);
             res.status(200).send(folders);
         });
     }

@@ -13,9 +13,9 @@ class UpdateTaskService {
     constructor(repoTask) {
         this.repoTask = repoTask;
     }
-    update(body, id) {
+    update(body) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.repoTask.update(body, id);
+            yield this.repoTask.update(body);
         });
     }
 }

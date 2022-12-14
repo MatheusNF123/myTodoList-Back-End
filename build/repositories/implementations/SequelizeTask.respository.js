@@ -40,7 +40,7 @@ class SequelizeTaskRepository {
             yield this.model.destroy({ where: { id } });
         });
     }
-    update({ name, inProgress, descricao, date }, id) {
+    update({ name, inProgress, descricao, date, id }) {
         return __awaiter(this, void 0, void 0, function* () {
             const tasks = yield this.model.findAll();
             const existsTask = tasks.some(task => task.id === id);

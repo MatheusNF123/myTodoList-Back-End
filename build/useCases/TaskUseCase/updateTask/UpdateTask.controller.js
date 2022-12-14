@@ -13,8 +13,8 @@ class UpdateTaskController {
     constructor(updateServiceTask) {
         this.updateServiceTask = updateServiceTask;
         this.update = (req, res) => __awaiter(this, void 0, void 0, function* () {
-            yield this.updateServiceTask.update(req.body, +req.params.id);
-            res.status(200).send(Object.assign(Object.assign({}, req.body), { id: +req.params.id }));
+            yield this.updateServiceTask.update(req.body);
+            res.status(200).send(Object.assign({}, req.body));
         });
     }
 }

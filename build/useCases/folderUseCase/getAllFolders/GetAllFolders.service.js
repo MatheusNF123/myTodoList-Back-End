@@ -13,9 +13,9 @@ class GetllAllFoldersService {
     constructor(folderRepo) {
         this.folderRepo = folderRepo;
     }
-    findAll() {
+    findAll(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            const folders = yield this.folderRepo.findAll();
+            const folders = yield this.folderRepo.findAll(id);
             return folders;
         });
     }

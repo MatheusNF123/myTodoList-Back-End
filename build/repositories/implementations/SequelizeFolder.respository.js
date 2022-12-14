@@ -19,10 +19,10 @@ class SequelizeFolderRepository {
     constructor() {
         this.model = Folders_1.default;
     }
-    findAll() {
+    findAll(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            const folders = yield this.model.findAll({
-                include: { model: Tasks_1.default, as: 'tasks', attributes: { exclude: ["id"] } }
+            const folders = yield this.model.findAll({ where: { userId: id },
+                include: { model: Tasks_1.default, as: 'tasks' }
             });
             return folders;
         });

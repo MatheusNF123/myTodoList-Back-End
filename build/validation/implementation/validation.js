@@ -8,14 +8,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-class CreateUserController {
-    constructor(_createUserService) {
-        this.create = (req, res) => __awaiter(this, void 0, void 0, function* () {
-            const user = yield this.createUserService.create(req.body);
-            res.status(201).json(user);
-        });
-        this.createUserService = _createUserService;
+exports.validateLogin = void 0;
+const customError_1 = __importDefault(require("../../Error/customError"));
+const validateLogin = (body, schema) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const data = yield schema.validate(body, { abortEarly: true });
+        return data;
     }
-}
-exports.default = CreateUserController;
+    catch (err) {
+        const yupError = err;
+        throw new customError_1.default(yupError.message, 400);
+    }
+});
+exports.validateLogin = validateLogin;
