@@ -2,10 +2,12 @@
   "name": "todolist-backend",
   "version": 2,
   "public": true,
-  "builds": {
-    "src": "./build/server.js",
-    "use": "@vercel/node"
-  },
+  "builds": [
+    {
+      "src": "build/server.js",
+      "use": "@vercel/node"
+    }
+  ],
   "routes": [
     {
       "src": "./build/(.*)",
