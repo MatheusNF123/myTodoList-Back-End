@@ -4,7 +4,7 @@
   "public": true,
   "builds": [
     {
-      "src": "build/server.js",
+      "src": "src/server.js",
       "use": "@vercel/node"
     }
   ],
