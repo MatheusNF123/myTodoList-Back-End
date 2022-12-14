@@ -1,12 +1,13 @@
 {
-  "name": "back-end",
+  "name": "todolist-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./build/server.js",
+
   "scripts": {
     "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch \"./src/**\" --transpile-only --files ./src/server.ts"
+    "test": "echo \"Error: no test specified\" && exit 1",    
+    "dev": "nodemon ./build/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -38,3 +39,4 @@
     "yup": "^0.32.11"
   }
 }
+

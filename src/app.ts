@@ -24,4 +24,6 @@ class App {
   }
 }
 
+// "dev": "nodemon --watch \"./src/**\" --transpile-only --files ./src/server.ts"
+
 export {App}
