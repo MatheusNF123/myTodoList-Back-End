@@ -13,6 +13,6 @@ const validateRegister = validation(schemaValidateRegister)
 
 router.post("/login", validateLogin, makeLoginController.login)
 router.post("/register", validateRegister, createUserController.create)
-router.get("/login", Token.authToken, authUserController.auth)
+router.get("/auth", Token.authToken, authUserController.auth)
 
 export default router
