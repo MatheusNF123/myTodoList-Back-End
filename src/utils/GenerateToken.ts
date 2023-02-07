@@ -24,11 +24,11 @@ export default class Token {
     if (!authorization) {
       throw new CustomError('Token must be a valid token', 401);
     }
-
+    
     try {
       const verificaToken = jwt.verify(authorization, secretKey) as IRequest;
       
-      req.user = verificaToken;
+      req.user = verificaToken;      
 
       next();
     } catch (error) {
