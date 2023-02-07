@@ -29,7 +29,7 @@ export default class MakeLoginService {
     if (!validPassword) throw new CustomError('Incorrect email or password', 401);
     const token = Token.generateToken({id: user.id, email: user.email });
     
-    const {username, email: emails} = user
-    return {userName: username, email: emails, token}
+    
+    return {userName: user.username, email: user.email, token}
   }
 }
