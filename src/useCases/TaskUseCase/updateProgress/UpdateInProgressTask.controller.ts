@@ -7,6 +7,6 @@ export default class UpdateInprogressTaskController {
   updateProgress: RequestHandler = async (req,res) => {
     await this.updataInProgressServiceTask.updateProgress(+req.params.id)
 
-    res.status(200).send("Progress atualizado!")
+    res.status(200).send({message: "Progress atualizado!"})
   }
 }

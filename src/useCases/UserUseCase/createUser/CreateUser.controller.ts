@@ -12,6 +12,7 @@ export default class CreateUserController {
 
   create:RequestHandler = async (req,res) => {
     const user = await this.createUserService.create(req.body);
+    console.log(user);
     
     res.status(201).json(user);
   }

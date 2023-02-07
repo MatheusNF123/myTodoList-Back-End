@@ -20,7 +20,6 @@ export default class Token {
 
   static authToken = (req: Request, _res:Response, next:NextFunction): void => {
     const { authorization } = req.headers;
-    console.log('-----------', authorization);
     
     if (!authorization) {
       throw new CustomError('Token must be a valid token', 401);

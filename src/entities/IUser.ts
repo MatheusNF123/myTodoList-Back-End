@@ -14,6 +14,10 @@ export interface IUserLogin extends IUserEmail {
   password: string;
 }
 
+export interface IUserToken {
+  token: string;
+}
+
 export interface IUserRegister extends IUserUsername, IUserEmail{}
 
 export default interface IUser extends IUserID, IUserUsername, IUserLogin{}

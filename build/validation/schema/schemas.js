@@ -26,16 +26,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.schemaValidateCreateTask = exports.schemaValidateFolder = exports.schemaValidateRegister = exports.schemaValidateLogin = void 0;
 const yup = __importStar(require("yup"));
 exports.schemaValidateLogin = yup.object().shape({
-    email: yup.string().email().required(),
-    password: yup.string().min(6).required(),
+    email: yup.string().email("Não e um email valido").required("Este campo é obrigatório"),
+    password: yup.string().min(6, "A senha deve ter 6 caracteres").required("Este campo é obrigatório"),
 });
 exports.schemaValidateRegister = yup.object().shape({
-    email: yup.string().email().required(),
-    password: yup.string().min(6).required(),
-    username: yup.string().min(2).required()
+    username: yup.string().min(2, "Username deve ter 2 caracteres no mínimo").required("Este campo é obrigatório"),
+    email: yup.string().email("Não e um email valido").required("Este campo é obrigatório"),
+    password: yup.string().min(6, "A senha deve ter 6 caracteres no mínimo").required("Este campo é obrigatório"),
 });
 exports.schemaValidateFolder = yup.object().shape({
-    name: yup.string().min(1).required(),
+    name: yup.string().min(1, "Digite o nome da pasta").required("Digite o nome da pasta"),
 });
 exports.schemaValidateCreateTask = yup.object().shape({
     name: yup.string().required(),

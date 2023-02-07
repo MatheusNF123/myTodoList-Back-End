@@ -37,6 +37,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const customError_1 = __importDefault(require("../../../Error/customError"));
 const bcrypt = __importStar(require("bcryptjs"));
+const GenerateToken_1 = __importDefault(require("../../../utils/GenerateToken"));
 class CreateUserService {
     constructor(_userRepo) {
         this.userRepo = _userRepo;
@@ -45,10 +46,11 @@ class CreateUserService {
         return __awaiter(this, void 0, void 0, function* () {
             const verifyExistsUser = yield this.userRepo.findOne({ email });
             if (verifyExistsUser)
-                throw new customError_1.default('Usuario ja existe', 400);
+                throw new customError_1.default('Email já cadastrado', 400);
             const hashPassord = yield bcrypt.hash(password, 10);
             const user = yield this.userRepo.create({ username, email, password: hashPassord });
-            return user;
+            const token = GenerateToken_1.default.generateToken({ id: user.id, email: user.email });
+            return { userName: user.username, email: user.email, token };
         });
     }
 }

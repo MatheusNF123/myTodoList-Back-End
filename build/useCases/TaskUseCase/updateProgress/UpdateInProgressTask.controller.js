@@ -14,7 +14,7 @@ class UpdateInprogressTaskController {
         this.updataInProgressServiceTask = updataInProgressServiceTask;
         this.updateProgress = (req, res) => __awaiter(this, void 0, void 0, function* () {
             yield this.updataInProgressServiceTask.updateProgress(+req.params.id);
-            res.status(200).send("Progress atualizado!");
+            res.status(200).send({ message: "Progress atualizado!" });
         });
     }
 }

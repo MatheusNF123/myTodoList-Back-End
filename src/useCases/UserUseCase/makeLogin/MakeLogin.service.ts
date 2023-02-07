@@ -5,7 +5,7 @@ import CustomError from '../../../Error/customError';
 import Token from '../../../utils/GenerateToken';
 import CreateUserService from '../createUser/CreateUser.service';
 
-interface ReturnLogin {
+export interface ReturnLogin {
   userName: string;
   email: string;
   token: string;

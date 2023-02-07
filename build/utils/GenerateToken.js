@@ -39,7 +39,6 @@ Token.generateToken = (payload) => {
 };
 Token.authToken = (req, _res, next) => {
     const { authorization } = req.headers;
-    console.log('-----------', authorization);
     if (!authorization) {
         throw new customError_1.default('Token must be a valid token', 401);
     }

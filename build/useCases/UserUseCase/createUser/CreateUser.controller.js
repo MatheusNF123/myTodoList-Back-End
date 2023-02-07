@@ -13,6 +13,7 @@ class CreateUserController {
     constructor(_createUserService) {
         this.create = (req, res) => __awaiter(this, void 0, void 0, function* () {
             const user = yield this.createUserService.create(req.body);
+            console.log(user);
             res.status(201).json(user);
         });
         this.createUserService = _createUserService;
