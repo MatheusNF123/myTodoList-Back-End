@@ -27,9 +27,9 @@ export default class MakeLoginService {
     
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) throw new CustomError('Incorrect email or password', 401);
-    const token = Token.generateToken({id: user.id, email });
+    const token = Token.generateToken({id: user.id, email: user.email });
     
-    const {username} = user
-    return {userName: username, email, token}
+    const {username, email: emails} = user
+    return {userName: username, email: emails, token}
   }
 }

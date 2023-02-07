@@ -12,8 +12,8 @@ export default class MakeLoginController {
   public login:RequestHandler = async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
-    const {userName, token} = await this._makeLoginService.login({ email, password });
+    const user = await this._makeLoginService.login({ email, password });
 
-    res.status(200).json({ userName, email, token});
+    res.status(200).json({...user});
   }
 }
